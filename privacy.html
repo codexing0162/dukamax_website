@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — DukaMax POS</title>
+  <meta name="description" content="Privacy Policy for DukaMax POS application. Learn how we protect your data and respect your privacy.">
+  <meta name="author" content="Bary-Tech">
+  <meta name="theme-color" content="#6c63ff">
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/dukamax_icon.png" type="image/png">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ======================== NAVBAR ======================== -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon"><img src="assets/dukamax_icon.png" alt=""></div>
+        DukaMax
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#features">Features</a>
+        <a href="privacy.html" style="color: var(--accent-light);">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span>☰</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ======================== PRIVACY CONTENT ======================== -->
+  <section class="legal-page">
+    <div class="blob blob-1" style="opacity: 0.15;"></div>
+    <div class="container">
+      <div class="legal-content">
+        <span class="section-label">🔒 Legal</span>
+        <h1>Privacy Policy</h1>
+        <p class="last-updated">Last updated: May 22, 2026</p>
+
+        <p>Bary-Tech we operates the DukaMax POS mobile application (the "App"). This Privacy Policy explains how we collect, use, and protect your information when you use the App.</p>
+
+        <h2>1. Information We Collect</h2>
+
+        <h3>1.1 Information You Provide</h3>
+        <p>When you use the DukaMax app, you may enter the following types of business information:</p>
+        <ul>
+          <li><strong>Shop Information:</strong> Business name, address, phone number, and email address configured in Settings.</li>
+          <li><strong>Product Data:</strong> Product names, descriptions, prices, stock levels, categories, barcodes, expiry dates, and images.</li>
+          <li><strong>Customer Data:</strong> Customer names, phone numbers, email addresses, and physical addresses.</li>
+          <li><strong>Transaction Data:</strong> Sale records, payment methods, receipt references, cashier information, and debt records.</li>
+          <li><strong>Financial Data:</strong> Expenses, restock costs, supplier information, and revenue data.</li>
+          <li><strong>User Accounts:</strong> Name, email, password (stored locally), and role (Admin or Cashier).</li>
+        </ul>
+
+        <h3>1.2 Information We Do NOT Collect</h3>
+        <div class="highlight-box">
+          <p><strong>DukaMax is designed with a local-first (offline) architecture.</strong> All data you enter is stored on your device's local database. We (Bary-Tech) do not collect, transmit, receive, or have access to any of your business data.</p>
+        </div>
+        <ul>
+          <li>We do <strong>not</strong> collect personal identification information remotely.</li>
+          <li>We do <strong>not</strong> track your location.</li>
+          <li>We do <strong>not</strong> use analytics or tracking SDKs.</li>
+          <li>We do <strong>not</strong> serve advertisements.</li>
+          <li>We do <strong>not</strong> access your camera, microphone, or contacts without explicit action (e.g., barcode scanning requires camera permission only when you initiate a scan).</li>
+        </ul>
+
+        <h2>2. Data Storage & Security</h2>
+
+        <h3>2.1 Local Storage</h3>
+        <p>All application data is stored locally on your device using an encrypted SQLite database. This means:</p>
+        <ul>
+          <li>Your data remains on your device at all times during normal use.</li>
+          <li>No internet connection is required for core functionality (sales, inventory, reports).</li>
+          <li>If the app is uninstalled or the device is lost, data may be lost unless you have performed a backup.</li>
+        </ul>
+
+        <h3>2.2 Optional Cloud Backup (Google Drive)</h3>
+        <p>DukaMax offers an <strong>optional</strong> cloud backup feature that, when activated by you, allows you to:</p>
+        <ul>
+          <li>Sync business data (sales, products, customers) to your personal Google Sheets account.</li>
+          <li>Upload a complete database backup file to your personal Google Drive.</li>
+        </ul>
+        <div class="highlight-box">
+          <p><strong>Important:</strong> When you use the Google Drive backup feature, your data is transmitted directly to <em>your own</em> Google account. Bary-Tech does not have access to your Google account or the data stored within it. This feature uses Google's OAuth 2.0 authentication, and you can revoke access at any time from within the app or from your Google Account settings.</p>
+        </div>
+
+        <h3>2.3 SMS Permissions</h3>
+        <p>DukaMax may request permission to send SMS messages for the following purposes:</p>
+        <ul>
+          <li><strong>Receipt SMS:</strong> Sending sale confirmation messages to customers after a purchase (only when you explicitly enable this feature during checkout).</li>
+          <li><strong>Report SMS:</strong> Sending daily sales reports to a designated phone number (e.g., business owner's phone).</li>
+        </ul>
+        <p>SMS messages are sent directly from your device. We do not intercept, store, or access the content of these messages. SMS sending is always initiated by your explicit action.</p>
+
+        <h2>3. Data Ownership & Your Rights</h2>
+        <p>You have full ownership and control over all data within the DukaMax application:</p>
+        <ul>
+          <li><strong>Access:</strong> You can view all your data at any time within the app.</li>
+          <li><strong>Modification:</strong> You can edit, update, or correct any information stored in the app.</li>
+          <li><strong>Deletion:</strong> You can delete individual records (products, customers, transactions) or clear all data by uninstalling the app.</li>
+          <li><strong>Export:</strong> You can export your data as PDF reports or sync to Google Sheets.</li>
+          <li><strong>Backup & Restore:</strong> You can create and restore backups at any time using the Cloud Backup feature.</li>
+        </ul>
+
+        <h2>4. Third-Party Services</h2>
+        <p>DukaMax integrates with the following third-party services, only when you explicitly enable them:</p>
+        <ul>
+          <li><strong>Google Sign-In & Google Drive API:</strong> Used for optional cloud backup functionality. Subject to <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</li>
+          <li><strong>Google Sheets API:</strong> Used for optional data sync. Subject to <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</li>
+        </ul>
+        <p>We do not integrate with any advertising networks, analytics platforms, or data brokers.</p>
+
+        <h2>5. Children's Privacy</h2>
+        <p>DukaMax is a business management application intended for use by adults. We do not knowingly collect data from children under the age of 13. If you believe a child has used the app, please contact us and we will assist with any concerns.</p>
+
+        <h2>6. Data Breach & Loss</h2>
+        <div class="highlight-box">
+          <p><strong>Disclaimer:</strong> Since all data is stored locally on your device, it is your sole responsibility to perform regular backups using the Cloud Backup feature. In the event of device failure, loss, theft, or data corruption without a proper backup, Bary-Tech shall not be held responsible for any data loss.</p>
+        </div>
+
+        <h2>7. Changes to This Privacy Policy</h2>
+        <p>We may update this Privacy Policy from time to time to reflect changes in our practices or applicable laws. When we make changes, we will update the "Last updated" date at the top of this page. We encourage you to review this page periodically for the latest information.</p>
+
+        <h2>8. Permissions Used</h2>
+        <p>The following device permissions may be requested by DukaMax:</p>
+        <ul>
+          <li><strong>Camera:</strong> For scanning product barcodes (only when you initiate a scan).</li>
+          <li><strong>Storage / Photos:</strong> For saving and loading product images.</li>
+          <li><strong>SMS:</strong> For sending receipt and report messages (only when you explicitly trigger sending).</li>
+          <li><strong>Internet:</strong> For optional Google Drive backup and sync (not required for core functionality).</li>
+        </ul>
+
+        <h2>9. Contact Us</h2>
+        <div class="contact-info">
+          <h3>Bary-Tech — Developer of DukaMax POS</h3>
+          <p>If you have any questions, concerns, or requests regarding this Privacy Policy or the handling of your data, please contact us:</p>
+          <ul>
+            <li><strong>Email:</strong> <a href="mailto:barytech9@gmail.com">barytech9@gmail.com</a></li>
+            <li><strong>Developer:</strong> Mujeeb Abdul — Lead Developer</li>
+            <li><strong>Location:</strong> Tanzania, East Africa</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== FOOTER ======================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <div class="logo-icon"><img src="assets/dukamax_icon.png" alt=""></div>
+            DukaMax
+          </a>
+          <p>A modern point of sale system designed to empower African retail businesses with the tools they need to succeed.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Product</h4>
+          <a href="index.html#features">Features</a>
+          <a href="index.html#how-it-works">How It Works</a>
+          <a href="index.html#download">Download</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="mailto:support@bary-tech.com">support@bary-tech.com</a>
+          <a href="#">Bary-Tech</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span id="current-year">2026</span> Bary-Tech. All rights reserved.</span>
+        <div class="social-links">
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>
