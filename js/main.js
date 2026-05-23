@@ -132,6 +132,40 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // ---- Gallery Filter ----
+  const galleryFilterBtns = document.querySelectorAll('.gallery-filter-btn');
+  const galleryItems = document.querySelectorAll('.gallery-item');
+
+  if (galleryFilterBtns.length > 0) {
+    galleryFilterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Update active button
+        galleryFilterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // Get filter value
+        const filterValue = btn.getAttribute('data-filter');
+
+        // Filter and animate items
+        galleryItems.forEach((item, index) => {
+          const itemCategory = item.getAttribute('data-category');
+          
+          if (filterValue === 'all' || itemCategory === filterValue) {
+            item.classList.remove('hide');
+            setTimeout(() => {
+              item.style.opacity = '1';
+            }, index * 50);
+          } else {
+            item.style.opacity = '0';
+            setTimeout(() => {
+              item.classList.add('hide');
+            }, 300);
+          }
+        });
+      });
+    });
+  }
+
   // ---- Current year in footer ----
   const yearEl = document.getElementById('current-year');
   if (yearEl) {
