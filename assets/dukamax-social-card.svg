@@ -1,0 +1,74 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6c63ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4a42cc;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Main background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  
+  <!-- Decorative circles -->
+  <circle cx="100" cy="80" r="120" fill="#ffffff" opacity="0.1"/>
+  <circle cx="1100" cy="550" r="150" fill="#ffffff" opacity="0.08"/>
+  
+  <!-- Content container -->
+  <rect x="60" y="60" width="1080" height="510" fill="#ffffff" opacity="0.95" rx="20" filter="url(#shadow)"/>
+  
+  <!-- Left side - Icon -->
+  <g transform="translate(150, 150)">
+    <!-- Icon background circle -->
+    <circle cx="105" cy="105" r="105" fill="#6c63ff"/>
+    
+    <!-- Simple DukaMax icon representation -->
+    <!-- Shopping cart symbol -->
+    <path d="M 80 70 L 130 70 L 140 150 L 70 150 Z" fill="#ffffff" stroke="#ffffff" stroke-width="2"/>
+    <circle cx="95" cy="160" r="12" fill="none" stroke="#ffffff" stroke-width="2"/>
+    <circle cx="125" cy="160" r="12" fill="none" stroke="#ffffff" stroke-width="2"/>
+    <path d="M 80 70 L 75 50 L 140 50 L 135 70" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Right side - Text content -->
+  <g transform="translate(420, 120)">
+    <!-- Main headline -->
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="72" font-weight="bold" fill="#1a1a2e" letter-spacing="-1">
+      DukaMax POS
+    </text>
+    
+    <!-- Subtitle -->
+    <text x="0" y="90" font-family="Arial, sans-serif" font-size="36" fill="#4a4a6a" font-weight="500">
+      Modern Point of Sale
+    </text>
+    
+    <!-- Description -->
+    <text x="0" y="150" font-family="Arial, sans-serif" font-size="24" fill="#6a6a8a">
+      Manage your retail business
+    </text>
+    <text x="0" y="185" font-family="Arial, sans-serif" font-size="24" fill="#6a6a8a">
+      offline-first, all in one app
+    </text>
+    
+    <!-- Key features (smaller text) -->
+    <text x="0" y="260" font-family="Arial, sans-serif" font-size="18" fill="#8a8aaa">
+      ✓ Sales • Inventory • Reports • Customers
+    </text>
+    
+    <!-- Call to Action button background -->
+    <rect x="0" y="300" width="280" height="60" fill="#ff6b6b" rx="30"/>
+    
+    <!-- CTA Text -->
+    <text x="140" y="337" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">
+      Download Now
+    </text>
+    
+    <!-- Tagline -->
+    <text x="0" y="410" font-family="Arial, sans-serif" font-size="16" fill="#9a9aaa">
+      Built for African Businesses • Free • Offline
+    </text>
+  </g>
+</svg>
