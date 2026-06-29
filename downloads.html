@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download DukaMax — Android & Windows</title>
+  <meta name="description" content="Download DukaMax POS for Android or Windows. Free offline-first point of sale system for African businesses.">
+  <meta name="theme-color" content="#6c63ff">
+
+  <link rel="icon" type="image/png" href="https://dukamax.live/assets/dukamax_icon.png">
+
+  <!-- Google Fonts — same as main site -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* ── Downloads page specific styles ── */
+    .dl-hero {
+      padding: 100px 0 60px;
+      text-align: center;
+    }
+    .dl-hero h1 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 12px; }
+    .dl-hero p  { color: var(--text-muted, #888); font-size: 1.1rem; }
+
+    .version-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(108,99,255,.12);
+      border: 1px solid rgba(108,99,255,.3);
+      color: #6c63ff;
+      font-size: .85rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 24px;
+    }
+    .version-badge .dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #6c63ff;
+      animation: pulse-dot 1.8s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50%      { opacity: .4; transform: scale(1.4); }
+    }
+
+    .dl-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      max-width: 700px;
+      margin: 48px auto 0;
+    }
+
+    .dl-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 36px 28px;
+      text-align: center;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .dl-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(108,99,255,.2);
+    }
+    .dl-card .platform-icon {
+      font-size: 3rem;
+      margin-bottom: 16px;
+    }
+    .dl-card h3 { font-size: 1.3rem; margin-bottom: 6px; }
+    .dl-card .meta {
+      font-size: .8rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+    .dl-card .file-size {
+      font-size: .75rem;
+      color: var(--text-muted);
+      margin-top: 10px;
+    }
+
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #6c63ff, #a78bfa);
+      color: #fff;
+      font-weight: 600;
+      font-size: .95rem;
+      padding: 13px 28px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: opacity .2s, transform .15s;
+      width: 100%;
+      justify-content: center;
+    }
+    .btn-download:hover { opacity: .9; transform: translateY(-1px); }
+    .btn-download:active { transform: translateY(0); }
+    .btn-download.disabled {
+      background: rgba(255,255,255,.08);
+      color: #666;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+    .btn-download svg { flex-shrink: 0; }
+
+    .release-notes {
+      max-width: 640px;
+      margin: 48px auto 0;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 32px;
+    }
+    .release-notes h4 {
+      font-size: .75rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      opacity: .7;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+    .release-notes p {
+      white-space: pre-wrap;
+      font-size: .9rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+    }
+
+    .force-badge {
+      display: inline-block;
+      background: #e5534b22;
+      border: 1px solid #e5534b55;
+      color: #e5534b;
+      font-size: .75rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 999px;
+      margin-left: 8px;
+    }
+
+    .skeleton {
+      background: var(--bg-card);
+      border-radius: 8px;
+      animation: shimmer 1.4s infinite linear;
+      background-size: 200% 100%;
+      background-image: linear-gradient(90deg,
+        rgba(255,255,255,.03) 25%,
+        rgba(255,255,255,.08) 50%,
+        rgba(255,255,255,.03) 75%);
+    }
+    @keyframes shimmer {
+      0%   { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+    .skel-badge { width: 130px; height: 28px; border-radius: 999px; margin: 0 auto 24px; }
+    .skel-btn   { height: 48px; border-radius: 12px; }
+
+    .version-error {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: .9rem;
+      padding: 48px 0;
+    }
+
+    .install-steps {
+      max-width: 640px;
+      margin: 40px auto 0;
+    }
+    .install-steps h4 {
+      font-size: .75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      opacity: .6;
+      margin-bottom: 16px;
+    }
+    .step {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 14px;
+      align-items: flex-start;
+    }
+    .step-num {
+      flex-shrink: 0;
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      background: rgba(108,99,255,.2);
+      border: 1px solid rgba(108,99,255,.4);
+      color: #a78bfa;
+      font-size: .8rem;
+      font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .step p { font-size: .88rem; line-height: 1.5; color: var(--text-secondary); margin: 0; }
+  </style>
+</head>
+<body>
+
+  <!-- ======================== NAV ======================== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon"><img src="assets/dukamax_icon.png" alt="DukaMax"></div>
+        DukaMax
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html#features">Features</a>
+        <a href="index.html#how-it-works">How It Works</a>
+        <a href="index.html">Home</a>
+        <a href="downloads.html">Download</a>
+      </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span>☰</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ======================== HERO ======================== -->
+  <section class="dl-hero">
+    <div class="container">
+      <div id="version-badge-wrap">
+        <div class="skeleton skel-badge"></div>
+      </div>
+      <h1>Download <span class="gradient-text">DukaMax</span></h1>
+      <p>Available for Android and Windows. Works offline — no internet required to sell.</p>
+
+      <div class="dl-cards" id="dl-cards">
+        <!-- Android -->
+        <div class="dl-card">
+          <div class="platform-icon">🤖</div>
+          <h3>Android</h3>
+          <p class="meta">Android 5.0 (API 21) and above</p>
+          <div class="skeleton skel-btn" id="skel-android"></div>
+          <p class="file-size" id="size-android"></p>
+        </div>
+        <!-- Windows -->
+        <div class="dl-card">
+          <div class="platform-icon">🖥️</div>
+          <h3>Windows</h3>
+          <p class="meta">Windows 10 / 11 (64-bit)</p>
+          <div class="skeleton skel-btn" id="skel-windows"></div>
+          <p class="file-size" id="size-windows"></p>
+        </div>
+      </div>
+
+      <div id="release-notes-wrap"></div>
+
+      <!-- Android install steps -->
+      <div class="install-steps">
+        <h4>How to install on Android</h4>
+        <div class="step">
+          <div class="step-num">1</div>
+          <p>Tap <strong>Download APK</strong> above. Your browser will save the file.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <p>Open your file manager and tap the downloaded <strong>dukamax-*.apk</strong> file.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <p>If prompted, allow installation from unknown sources for your browser or file manager.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <p>Tap <strong>Install</strong>. The app will appear on your home screen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== FOOTER (minimal) ======================== -->
+  <footer style="text-align:center;padding:40px 20px;color:var(--text-muted);font-size:.85rem;border-top:1px solid var(--border);margin-top:80px;">
+    <a href="index.html" style="color:var(--accent-light);font-weight:600;">← Back to DukaMax</a>
+    <p style="margin-top:12px">© 2026 DukaMax · Built for Tanzania</p>
+  </footer>
+
+  <script src="config.js"></script>
+  <script>
+    const API = 'https://api.dukasync.xyz';
+
+    function formatBytes(bytes) {
+      if (!bytes || bytes === 0) return '';
+      if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(0) + ' KB';
+      return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+    }
+
+    function downloadIcon() {
+      return `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+      </svg>`;
+    }
+
+    async function loadVersion() {
+      try {
+        const res = await fetch(`${API}/api/version`);
+        const json = await res.json();
+        const data = json.data;
+
+        // Version badge
+        const badgeWrap = document.getElementById('version-badge-wrap');
+        if (data) {
+          badgeWrap.innerHTML = `
+            <div class="version-badge">
+              <span class="dot"></span>
+              Version ${data.version}
+              ${data.forceUpdate ? '<span class="force-badge">Required Update</span>' : ''}
+            </div>`;
+        } else {
+          badgeWrap.innerHTML = '<div class="version-badge"><span class="dot"></span>Latest Version</div>';
+        }
+
+        // Android button
+        const skelAndroid = document.getElementById('skel-android');
+        if (data?.android?.url) {
+          skelAndroid.outerHTML = `
+            <a href="${data.android.url}" class="btn-download" download>
+              ${downloadIcon()} Download APK
+            </a>`;
+          const sizeEl = document.getElementById('size-android');
+          if (sizeEl && data.android.size) sizeEl.textContent = formatBytes(data.android.size);
+        } else {
+          skelAndroid.outerHTML = `<a class="btn-download disabled">${downloadIcon()} Coming Soon</a>`;
+        }
+
+        // Windows button
+        const skelWindows = document.getElementById('skel-windows');
+        if (data?.windows?.url) {
+          skelWindows.outerHTML = `
+            <a href="${data.windows.url}" class="btn-download" download>
+              ${downloadIcon()} Download EXE
+            </a>`;
+          const sizeEl = document.getElementById('size-windows');
+          if (sizeEl && data.windows.size) sizeEl.textContent = formatBytes(data.windows.size);
+        } else {
+          skelWindows.outerHTML = `<a class="btn-download disabled">${downloadIcon()} Coming Soon</a>`;
+        }
+
+        // Release notes
+        if (data?.releaseNotes) {
+          document.getElementById('release-notes-wrap').innerHTML = `
+            <div class="release-notes">
+              <h4>What's new in ${data.version}</h4>
+              <p>${data.releaseNotes.replace(/</g, '&lt;')}</p>
+            </div>`;
+        }
+
+      } catch (err) {
+        document.getElementById('version-badge-wrap').innerHTML = '';
+        document.getElementById('skel-android').outerHTML =
+          `<a class="btn-download disabled">${downloadIcon()} Unavailable</a>`;
+        document.getElementById('skel-windows').outerHTML =
+          `<a class="btn-download disabled">${downloadIcon()} Unavailable</a>`;
+      }
+    }
+
+    loadVersion();
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar')?.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // Mobile nav toggle
+    document.getElementById('nav-toggle')?.addEventListener('click', () => {
+      document.getElementById('nav-links')?.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
