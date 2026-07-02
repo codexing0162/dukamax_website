@@ -46,7 +46,7 @@
       <div class="legal-content">
         <span class="section-label">🔒 Legal</span>
         <h1>Privacy Policy</h1>
-        <p class="last-updated">Last updated: May 22, 2026</p>
+        <p class="last-updated">Last updated: July 2, 2026</p>
 
         <p>Bary-Tech we operates the DukaMax POS mobile application (the "App"). This Privacy Policy explains how we collect, use, and protect your information when you use the App.</p>
 
@@ -85,23 +85,24 @@
           <li>If the app is uninstalled or the device is lost, data may be lost unless you have performed a backup.</li>
         </ul>
 
-        <h3>2.2 Optional Cloud Backup (Google Drive)</h3>
+        <h3>2.2 Optional Cloud Backup (DukaMax Cloud)</h3>
         <p>DukaMax offers an <strong>optional</strong> cloud backup feature that, when activated by you, allows you to:</p>
         <ul>
-          <li>Sync business data (sales, products, customers) to your personal account.</li>
-          <li>Upload a complete database backup file to your personal Google Drive.</li>
+          <li>Sync business data (sales, products, customers) to your shop's DukaMax account.</li>
+          <li>Upload a complete database backup file to DukaMax Cloud, our own backup storage service.</li>
         </ul>
         <div class="highlight-box">
-          <p><strong>Important:</strong> When you use the Google Drive backup feature, your data is transmitted directly to <em>your own</em> Google account. Bary-Tech does not have access to your Google account or the data stored within it. This feature uses Google's OAuth 2.0 authentication, and you can revoke access at any time from within the app or from your Google Account settings.</p>
+          <p><strong>Important:</strong> When you use the Cloud Backup feature, your data is transmitted directly to your shop's private storage on DukaMax Cloud, accessible only with your shop's credentials. We do not sell, share, or analyze the contents of your backups. You can disable Cloud Backup at any time from within the app.</p>
         </div>
 
-        <h3>2.3 SMS Permissions</h3>
-        <p>DukaMax may request permission to send SMS messages for the following purposes:</p>
+        <h3>2.3 SMS Notifications</h3>
+        <p>DukaMax uses this feature to send SMS messages for the following purposes, only when you explicitly trigger them:</p>
         <ul>
           <li><strong>Receipt SMS:</strong> Sending sale confirmation messages to customers after a purchase (only when you explicitly enable this feature during checkout).</li>
           <li><strong>Report SMS:</strong> Sending daily sales reports to a designated phone number (e.g., business owner's phone).</li>
+          <li><strong>Debt Reminder SMS:</strong> Sending payment reminders to customers with outstanding balances (only when you initiate it).</li>
         </ul>
-        <p>SMS messages are sent directly from your device. We do not intercept, store, or access the content of these messages. SMS sending is always initiated by your explicit action.</p>
+        <p>SMS messages are delivered through our SMS provider, Beem Africa, using the phone number and message content you provide at the time of sending. We do not intercept, store, or read incoming messages, and messages are only sent when you take an explicit action in the app.</p>
 
         <h2>3. Data Ownership & Your Rights</h2>
         <p>You have full ownership and control over all data within the DukaMax application:</p>
@@ -109,17 +110,16 @@
           <li><strong>Access:</strong> You can view all your data at any time within the app.</li>
           <li><strong>Modification:</strong> You can edit, update, or correct any information stored in the app.</li>
           <li><strong>Deletion:</strong> You can delete individual records (products, customers, transactions) or clear all data by uninstalling the app.</li>
-          <li><strong>Export:</strong> You can export your data as PDF reports or sync to Google.</li>
+          <li><strong>Export:</strong> You can export your data as PDF reports or sync it to DukaMax Cloud.</li>
           <li><strong>Backup & Restore:</strong> You can create and restore backups at any time using the Cloud Backup feature.</li>
         </ul>
 
         <h2>4. Third-Party Services</h2>
-        <p>DukaMax integrates with the following third-party services, only when you explicitly enable them:</p>
+        <p>DukaMax integrates with the following third-party service, only when you explicitly use the related feature:</p>
         <ul>
-          <li><strong>Google Sign-In & Google Drive API:</strong> Used for optional cloud backup functionality. Subject to <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</li>
-          <li><strong>Google Sheets API:</strong> Used for optional data sync. Subject to <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</li>
+          <li><strong>Beem Africa (SMS delivery):</strong> Used to deliver receipt, report, and debt reminder SMS messages you choose to send. Only the phone number and message content for that specific SMS are shared with Beem Africa.</li>
         </ul>
-        <p>We do not integrate with any advertising networks, analytics platforms, or data brokers.</p>
+        <p>DukaMax Cloud Backup and data sync are provided directly by our own servers — not a third party. We do not integrate with any advertising networks, analytics platforms, or data brokers.</p>
 
         <h2>5. Children's Privacy</h2>
         <p>DukaMax is a business management application intended for use by adults. We do not knowingly collect data from children under the age of 13. If you believe a child has used the app, please contact us and we will assist with any concerns.</p>
@@ -137,8 +137,7 @@
         <ul>
           <li><strong>Camera:</strong> For scanning product barcodes (only when you initiate a scan).</li>
           <li><strong>Storage / Photos:</strong> For saving and loading product images.</li>
-          <li><strong>SMS:</strong> For sending receipt and report messages (only when you explicitly trigger sending).</li>
-          <li><strong>Internet:</strong> For optional Google Drive backup and sync (not required for core functionality).</li>
+          <li><strong>Internet:</strong> For optional Cloud Backup and sync, and for sending SMS receipts/reports through Beem Africa (not required for core functionality — the app works fully offline for sales and inventory).</li>
         </ul>
 
         <h2>9. Contact Us</h2>
@@ -185,7 +184,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <span>&copy; <span id="current-year">2026</span> Bary-Tech. All rights reserved.</span>
+        <span>&copy; <span id="current-year">2026</span> Bary-Tech. All rights reserved. · Built by <a href="https://codexing0162.github.io/mujeeb-portfolio/#about" target="_blank" rel="noopener">Mujeeb Abdul</a></span>
         <div class="social-links">
           <a href="privacy.html">Privacy</a>
           <a href="terms.html">Terms</a>

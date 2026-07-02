@@ -879,6 +879,8 @@ section {
 .animate-on-scroll.delay-3 { transition-delay: 0.3s; }
 .animate-on-scroll.delay-4 { transition-delay: 0.4s; }
 .animate-on-scroll.delay-5 { transition-delay: 0.5s; }
+.animate-on-scroll.delay-6 { transition-delay: 0.6s; }
+.animate-on-scroll.delay-7 { transition-delay: 0.7s; }
 
 /* ---------- Legal Pages (Privacy & Terms) ---------- */
 .legal-page {
