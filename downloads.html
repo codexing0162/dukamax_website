@@ -297,66 +297,90 @@
       </svg>`;
     }
 
+    const LOCAL_ASSETS = {
+      android: 'assets/apk/dukamax.apk',
+      windows: 'assets/apk/dukamax.exe'
+    };
+
+    async function assetExists(url) {
+      try {
+        const res = await fetch(url, { method: 'HEAD' });
+        return res.ok;
+      } catch {
+        return false;
+      }
+    }
+
+    async function renderDownloadButton({ remoteUrl, fallbackPath, label, disabledText, sizeEl, sizeValue }) {
+      if (remoteUrl) {
+        return `<a href="${remoteUrl}" class="btn-download" download>${downloadIcon()} ${label}</a>`;
+      }
+
+      const hasFallback = await assetExists(fallbackPath);
+      if (hasFallback) {
+        if (sizeEl && sizeValue) sizeEl.textContent = formatBytes(sizeValue);
+        return `<a href="${fallbackPath}" class="btn-download" download>${downloadIcon()} ${label}</a>`;
+      }
+
+      if (sizeEl) sizeEl.textContent = '';
+      return `<a class="btn-download disabled">${downloadIcon()} ${disabledText}</a>`;
+    }
+
     async function loadVersion() {
+      let data = null;
+
       try {
         const res = await fetch(`${API}/api/version`);
         const json = await res.json();
-        const data = json.data;
-
-        // Version badge
-        const badgeWrap = document.getElementById('version-badge-wrap');
-        if (data) {
-          badgeWrap.innerHTML = `
-            <div class="version-badge">
-              <span class="dot"></span>
-              Version ${data.version}
-              ${data.forceUpdate ? '<span class="force-badge">Required Update</span>' : ''}
-            </div>`;
-        } else {
-          badgeWrap.innerHTML = '<div class="version-badge"><span class="dot"></span>Latest Version</div>';
-        }
-
-        // Android button
-        const skelAndroid = document.getElementById('skel-android');
-        if (data?.android?.url) {
-          skelAndroid.outerHTML = `
-            <a href="${data.android.url}" class="btn-download" download>
-              ${downloadIcon()} Download APK
-            </a>`;
-          const sizeEl = document.getElementById('size-android');
-          if (sizeEl && data.android.size) sizeEl.textContent = formatBytes(data.android.size);
-        } else {
-          skelAndroid.outerHTML = `<a class="btn-download disabled">${downloadIcon()} Coming Soon</a>`;
-        }
-
-        // Windows button
-        const skelWindows = document.getElementById('skel-windows');
-        if (data?.windows?.url) {
-          skelWindows.outerHTML = `
-            <a href="${data.windows.url}" class="btn-download" download>
-              ${downloadIcon()} Download EXE
-            </a>`;
-          const sizeEl = document.getElementById('size-windows');
-          if (sizeEl && data.windows.size) sizeEl.textContent = formatBytes(data.windows.size);
-        } else {
-          skelWindows.outerHTML = `<a class="btn-download disabled">${downloadIcon()} Coming Soon</a>`;
-        }
-
-        // Release notes
-        if (data?.releaseNotes) {
-          document.getElementById('release-notes-wrap').innerHTML = `
-            <div class="release-notes">
-              <h4>What's new in ${data.version}</h4>
-              <p>${data.releaseNotes.replace(/</g, '&lt;')}</p>
-            </div>`;
-        }
-
+        data = json.data;
       } catch (err) {
-        document.getElementById('version-badge-wrap').innerHTML = '';
-        document.getElementById('skel-android').outerHTML =
-          `<a class="btn-download disabled">${downloadIcon()} Unavailable</a>`;
-        document.getElementById('skel-windows').outerHTML =
-          `<a class="btn-download disabled">${downloadIcon()} Unavailable</a>`;
+        data = null;
+      }
+
+      // Version badge
+      const badgeWrap = document.getElementById('version-badge-wrap');
+      if (data) {
+        badgeWrap.innerHTML = `
+          <div class="version-badge">
+            <span class="dot"></span>
+            Version ${data.version}
+            ${data.forceUpdate ? '<span class="force-badge">Required Update</span>' : ''}
+          </div>`;
+      } else {
+        badgeWrap.innerHTML = '<div class="version-badge"><span class="dot"></span>Latest Version</div>';
+      }
+
+      // Android button
+      const skelAndroid = document.getElementById('skel-android');
+      const androidButton = await renderDownloadButton({
+        remoteUrl: data?.android?.url,
+        fallbackPath: LOCAL_ASSETS.android,
+        label: 'Download APK',
+        disabledText: 'Coming Soon',
+        sizeEl: document.getElementById('size-android'),
+        sizeValue: data?.android?.size
+      });
+      skelAndroid.outerHTML = androidButton;
+
+      // Windows button
+      const skelWindows = document.getElementById('skel-windows');
+      const windowsButton = await renderDownloadButton({
+        remoteUrl: data?.windows?.url,
+        fallbackPath: LOCAL_ASSETS.windows,
+        label: 'Download EXE',
+        disabledText: 'Coming Soon',
+        sizeEl: document.getElementById('size-windows'),
+        sizeValue: data?.windows?.size
+      });
+      skelWindows.outerHTML = windowsButton;
+
+      // Release notes
+      if (data?.releaseNotes) {
+        document.getElementById('release-notes-wrap').innerHTML = `
+          <div class="release-notes">
+            <h4>What's new in ${data.version}</h4>
+            <p>${data.releaseNotes.replace(/</g, '&lt;')}</p>
+          </div>`;
       }
     }
 
